@@ -1,0 +1,99 @@
+body {
+    /* background-color: #e6e6e6;*/
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: small;
+    color: #404040;
+}
+
+#container {
+    width: 850px;
+    margin: 30px auto 0;
+    background-color: #ffffff;
+    /* border: 0px solid #8B8B8B;
+     -moz-box-shadow: 0 0 5px #888;
+     -webkit-box-shadow: 0 0 5px#888;
+     box-shadow: 0 0 5px #888;*/
+}
+
+#header {
+    height: 110px;
+    padding: 20px;
+    color: #8B8B8B;
+}
+
+#header h1 {
+    font-weight: 400;
+    color: #A56369;
+    padding-bottom: 0;
+    font-size: 300%;
+    line-height: 50%;
+    text-transform: uppercase;
+}
+
+#navbar {
+    height: 40px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#navbar hr {
+    border: 0;
+    width: 90%;
+    color: #8B8B8B;
+    background-color: #8B8B8B;
+    height: 1px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+}
+
+#navbar ul li {
+    display: inline;
+}
+
+.current {
+    font-weight: bold;
+}
+
+#navbar a {
+
+    padding: 10px;
+    text-decoration: none;
+    color: #555251;
+    text-transform: uppercase;
+}
+
+#navbar a:hover {
+    color: #A56369;
+}
+
+.blogHeadline a {
+    text-decoration: none;
+    color: #A56369;
+}
+
+#content {
+    min-height: 450px; /* for modern browsers */
+    height: auto !important; /* for modern browsers */
+    height: 450px; /* for IE5.x and IE6 */
+    margin-top: 10px;
+    padding: 20px;
+}
+
+#content h1 {
+    font-weight: 400;
+    color: #A56369;
+}
+
+#footer {
+    height: 100px;
+    margin-top: 20px;
+    text-align: center;
+    color: #8B8B8B;
+}

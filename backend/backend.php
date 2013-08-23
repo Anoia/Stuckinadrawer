@@ -49,6 +49,7 @@ class RequestHandler
             default:
                 break;
         }
+        $DBC = null;
     }
 
 }

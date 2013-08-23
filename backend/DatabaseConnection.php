@@ -12,6 +12,11 @@ class DatabaseConnection
         $this->DBH = $this->connectToDB();
     }
 
+    public function __destruct()
+    {
+        $this->DBH = null;
+    }
+
     private function connectToDB()
     {
         $host = DBVars::$host;
@@ -32,46 +37,31 @@ class DatabaseConnection
     {
         $STH = $this->DBH->query('SELECT * FROM blog ORDER BY id DESC');
         $STH->setFetchMode(PDO::FETCH_ASSOC);
-        $result = array();
-        while ($row = $STH->fetch()) {
-            array_push($result, $row);
-        }
-        return $result;
+        return $STH->fetchAll();
     }
 
-    // TODO replace query();
     public function getBlogPostById($id)
     {
-        $STH = $this->DBH->query("SELECT * FROM blog WHERE id = $id");
+
+        $STH = $this->DBH->prepare('SELECT * FROM blog WHERE id = ?');
+        $STH->execute(array($id));
         $STH->setFetchMode(PDO::FETCH_ASSOC);
-        $result = array();
-        while ($row = $STH->fetch()) {
-            array_push($result, $row);
-        }
-        return $result;
+        return $STH->fetchAll();
     }
 
     public function getAllProjects()
     {
         $STH = $this->DBH->query('SELECT * FROM projects ORDER BY id DESC');
         $STH->setFetchMode(PDO::FETCH_ASSOC);
-        $result = array();
-        while ($row = $STH->fetch()) {
-            array_push($result, $row);
-        }
-        return $result;
+        return $STH->fetchAll();
     }
 
-    // TODO replace query();
     public function getProjectById($id)
     {
-        $STH = $this->DBH->query("SELECT * FROM projects WHERE id = $id");
+        $STH = $this->DBH->prepare('SELECT * FROM projects WHERE id = ?');
+        $STH->execute(array($id));
         $STH->setFetchMode(PDO::FETCH_ASSOC);
-        $result = array();
-        while ($row = $STH->fetch()) {
-            array_push($result, $row);
-        }
-        return $result;
+        return $STH->fetchAll();
     }
 
 }

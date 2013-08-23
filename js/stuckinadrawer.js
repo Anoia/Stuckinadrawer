@@ -31,7 +31,12 @@ displayPage = {
     },
     'projects': function () {
         console.log("projects");
-        console.log(getURLParameter('id'));
+        var id = getURLParameter('id');
+        if (jQuery.isNumeric(id)) {
+            Ajax.getProjectById(id);
+        } else {
+            Ajax.getProjectsForOverview();
+        }
     },
     'about': function () {
         console.log("about");

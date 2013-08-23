@@ -28,15 +28,22 @@ class RequestHandler
 
     private function handleRequest($request)
     {
+        $DBC = new DatabaseConnection();
         switch ($request) {
             case "getAllBlogPosts":
-                $DBC = new DatabaseConnection();
                 $result = $DBC->getAllBlogPosts();
                 echo json_encode($result);
                 break;
             case "getBlogPostById":
-                $DBC = new DatabaseConnection();
                 $result = $DBC->getBlogPostById($_GET['id']);
+                echo json_encode($result);
+                break;
+            case "getProjectsForOverview":
+                $result = $DBC->getAllProjects();
+                echo json_encode($result);
+                break;
+            case "getProjectById":
+                $result = $DBC->getProjectById($_GET['id']);
                 echo json_encode($result);
                 break;
             default:

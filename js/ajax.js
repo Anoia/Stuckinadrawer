@@ -27,6 +27,34 @@ Ajax = {
         });
     },
 
+    getProjectsForOverview: function () {
+        $.ajax({
+            url: 'backend/backend.php',
+            data: {
+                request: 'getProjectsForOverview'
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: displayProjectOverview,
+            error: Ajax.displayError
+        });
+    },
+
+    getProjectById: function (id) {
+        console.log('get Project by id: ' + id);
+        $.ajax({
+            url: 'backend/backend.php',
+            data: {
+                request: 'getProjectById',
+                id: id
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: displayProject,
+            error: Ajax.displayError
+        });
+    },
+
     displayError: function (xhr, status) {
         alert('Ajax error!');
         console.log(status);

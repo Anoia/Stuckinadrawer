@@ -39,9 +39,33 @@ class DatabaseConnection
         return $result;
     }
 
+    // TODO replace query();
     public function getBlogPostById($id)
     {
         $STH = $this->DBH->query("SELECT * FROM blog WHERE id = $id");
+        $STH->setFetchMode(PDO::FETCH_ASSOC);
+        $result = array();
+        while ($row = $STH->fetch()) {
+            array_push($result, $row);
+        }
+        return $result;
+    }
+
+    public function getAllProjects()
+    {
+        $STH = $this->DBH->query('SELECT * FROM projects ORDER BY id DESC');
+        $STH->setFetchMode(PDO::FETCH_ASSOC);
+        $result = array();
+        while ($row = $STH->fetch()) {
+            array_push($result, $row);
+        }
+        return $result;
+    }
+
+    // TODO replace query();
+    public function getProjectById($id)
+    {
+        $STH = $this->DBH->query("SELECT * FROM projects WHERE id = $id");
         $STH->setFetchMode(PDO::FETCH_ASSOC);
         $result = array();
         while ($row = $STH->fetch()) {

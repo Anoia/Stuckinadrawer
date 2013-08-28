@@ -1,103 +1,126 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700italic);
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    /* background-color: #e6e6e6;*/
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: small;
-    color: #404040;
+    background: #EFF3F3;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    color: #34495E;
 }
 
-#container {
-    width: 850px;
-    margin: 30px auto 0;
-    background-color: #ffffff;
-    /* border: 0px solid #8B8B8B;
-     -moz-box-shadow: 0 0 5px #888;
-     -webkit-box-shadow: 0 0 5px#888;
-     box-shadow: 0 0 5px #888;*/
-}
-
-#header {
-    height: 110px;
-    padding: 20px;
-    color: #8B8B8B;
-}
-
-#header h1 {
-    font-weight: 400;
-    color: #A56369;
-    padding-bottom: 0;
-    font-size: 300%;
-    line-height: 50%;
+header {
+    text-align: justify;
+    height: 4em;
+    padding: 2em 5%;
     text-transform: uppercase;
 }
 
-#navbar {
-    height: 60px;
-    margin-top: 10px;
-    text-align: center;
+header h1,
+header nav {
+    display: inline-block;
+    font-weight: 700;
 }
 
-#navbar hr {
-    border: 0;
-    width: 90%;
-    color: #8B8B8B;
-    background-color: #8B8B8B;
-    height: 1px;
+header nav a {
+    padding: 5px;
+    font-size: 120%;
 }
 
-#navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: block;
+header::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
 }
 
-#navbar ul li {
-    display: inline;
+header h1 {
+    height: 100%;
+    font-size: 250%;
 }
 
-.current {
+header h1::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+nav a:link,
+nav a:visited,
+nav a:active {
+    color: #34495E;
+    text-decoration: none;
     font-weight: bold;
 }
 
-#navbar a {
-
-    padding: 10px;
+nav a:hover {
+    color: #27AE60;
     text-decoration: none;
-    color: #555251;
-    text-transform: uppercase;
+    font-weight: bold;
 }
 
-#navbar a:hover {
-    color: #A56369;
-}
-
-.blogHeadline a {
-    text-decoration: none;
-    color: #A56369;
-}
-
-#content {
-    min-height: 450px; /* for modern browsers */
-    height: auto !important; /* for modern browsers */
-    height: 450px; /* for IE5.x and IE6 */
-    margin-top: 10px;
-    padding: 20px;
-}
-
-.projectOverview {
-    margin: 30px;
-}
-
-#content h1 {
-    font-weight: 400;
-    color: #A56369;
-}
-
-#footer {
-    height: 100px;
-    margin-top: 20px;
+section {
+    padding: 2em 20%;
     text-align: center;
-    color: #8B8B8B;
+    min-height: 20em;
+}
+
+section p {
+
+}
+
+section h1 {
+    padding: 1em;
+    font-size: 350%;
+    color: #27AE60;
+
+}
+
+#hello {
+    background: #34495E;
+    color: #fff;
+}
+
+#contact {
+    background: #34495E;
+    color: #fff;
+}
+
+#projects img {
+    background: #fff;
+    margin: 2em;
+    height: 200px;
+    width: 200px;
+    border: solid #34495E 4px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#projects img:hover {
+    border: solid #27AE60 4px;
+}
+
+b {
+    color: #27AE60;
+}
+
+footer {
+    padding: 2em 5%;
+    text-align: center;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: #27AE60;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }

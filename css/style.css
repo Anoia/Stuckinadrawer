@@ -64,7 +64,6 @@ nav a:hover {
 
 section {
     padding: 2em 20%;
-    text-align: center;
     min-height: 20em;
 }
 
@@ -76,6 +75,7 @@ section h1 {
     padding: 1em;
     font-size: 350%;
     color: #27AE60;
+    text-align: center;
 
 }
 

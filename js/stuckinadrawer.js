@@ -1,53 +1,12 @@
 $(document).ready(isReady);
 
 function isReady() {
-    var page = getURLParameter('page');
-    if (displayPage[page]) {
-        displayPage[page]();
-    } else {
-        displayPage['default']();
-    }
 
-    //highlight current page
-    $('#navbar').find('ul li a').each(function () {
-        if (this.href.indexOf(page) != -1) {
-            $('li.current').removeClass('current');
-            $(this).parent().addClass('current');
-        }
-    });
+
+    Ajax.getProjectsForOverview();
 
 
 }
-
-displayPage = {
-    'home': function () {
-        console.log("home");
-        var id = getURLParameter('id');
-        if (jQuery.isNumeric(id)) {
-            Ajax.getBlogPostById(id);
-        } else {
-            Ajax.getBlogContent();
-        }
-    },
-    'projects': function () {
-        console.log("projects");
-        var id = getURLParameter('id');
-        if (jQuery.isNumeric(id)) {
-            Ajax.getProjectById(id);
-        } else {
-            Ajax.getProjectsForOverview();
-        }
-    },
-    'about': function () {
-        console.log("about");
-    },
-    'contact': function () {
-        console.log('contact');
-    },
-    'default': function () {
-        this.home();
-    }
-};
 
 function getURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
@@ -60,6 +19,25 @@ function getURLParameter(sParam) {
     }
 }
 
+
+function getProjectDetails(id) {
+    var $details = $('.details');
+    if ($details.data().id == id) {
+        $details.slideUp(400, function () {
+            $details.empty();
+            $details.data({
+                id: null
+            })
+        });
+    } else {
+        $details.slideUp(400, function () {
+            $details.empty();
+            Ajax.getProjectById(id);
+        });
+    }
+
+
+}
 
 
 

@@ -40,36 +40,39 @@ function displayBlogPost(jSONResult) {
 
 function displayProjectOverview(jSONResult) {
     console.log(jSONResult);
-
+    var $project = $('#projects');
     for (var i = 0; i < jSONResult.length; i++) {
-        var $project = $('<span/>', {
-            "class": "projectOverview"
-        });
-        var $link = $('<a/>', {
-            href: ("index2.html?page=projects&id=" + jSONResult[i].id)
-        });
         var $img = $('<img/>', {
-            src: jSONResult[i].thumbnail
+            src: jSONResult[i].thumbnail,
+            onclick: 'getProjectDetails(' + jSONResult[i].id + ');'
         });
-        $link.append($img);
-        $project.append($link);
-        $('#content').append($project);
+
+        $project.append($img);
     }
+    var $details = $('<div/>', {
+        'class': 'details',
+        style: 'display: none'
+    });
+    $project.append($details);
 
 }
 
+function closeDetails() {
+    var $details = $('.details');
+    $details.slideUp();
+    $details.empty();
+    $details.data({
+        id: null
+    })
+}
 function displayProject(jSONResult) {
     console.log(jSONResult);
 
-    var $project = $('<div/>', {
-        "class": "project"
-    });
+    var $details = $('.details');
+
     var $title = $('<h1/>', {
-        "class": "projectHeadline"
-    });
-    var $link = $('<a/>', {
-        html: jSONResult[0].title,
-        href: ("index2.html?page=projects&id=" + jSONResult[0].id)
+        "class": "projectHeadline",
+        html: jSONResult[0].title
     });
     var $img = $('<img/>', {
         src: jSONResult[0].image
@@ -80,9 +83,18 @@ function displayProject(jSONResult) {
     var $content = $('<p/>', {
         html: jSONResult[0].content
     });
-    $title.append($link);
-    $project.append($title, $img, $description, $content);
-    $('#content').append($project);
+
+    var $button = $('<button/>', {
+        html: "close",
+        type: 'button',
+        onclick: 'closeDetails();'
+    });
+    $details.data({
+        id: jSONResult[0].id
+    })
+
+    $details.append($title, $img, $description, $content, $button);
+    $details.slideDown();
 }
 
 

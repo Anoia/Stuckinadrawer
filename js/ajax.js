@@ -41,7 +41,6 @@ Ajax = {
     },
 
     getProjectById: function (id) {
-        console.log('get Project by id: ' + id);
         $.ajax({
             url: 'backend/backend.php',
             data: {
@@ -51,6 +50,21 @@ Ajax = {
             type: 'GET',
             dataType: 'json',
             success: displayProject,
+            error: Ajax.displayError
+        });
+    },
+
+    login: function (username, password) {
+        $.ajax({
+            url: 'backend/backend.php',
+            data: {
+                request: 'login',
+                username: username,
+                password: password
+            },
+            type: 'POST',
+            dataType: 'text',
+            success: login,
             error: Ajax.displayError
         });
     },

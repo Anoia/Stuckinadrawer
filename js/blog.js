@@ -57,14 +57,7 @@ function displayProjectOverview(jSONResult) {
 
 }
 
-function closeDetails() {
-    var $details = $('.details');
-    $details.slideUp();
-    $details.empty();
-    $details.data({
-        id: null
-    })
-}
+
 function displayProject(jSONResult) {
     console.log(jSONResult);
 
@@ -94,7 +87,11 @@ function displayProject(jSONResult) {
     })
 
     $details.append($title, $img, $description, $content, $button);
-    $details.slideDown();
+    $details.slideDown(400, function () {
+        /*$('html, body').animate({
+         scrollTop: $('#projects').offset().top
+         }, 500);     */
+    });
 }
 
 

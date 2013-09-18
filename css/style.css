@@ -124,3 +124,12 @@ a:active {
 a:hover {
     text-decoration: underline;
 }
+
+button {
+    background: #EFF3F3;
+    color: #27AE60;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    margin-top: 20px;
+}

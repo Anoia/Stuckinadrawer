@@ -46,6 +46,15 @@ class RequestHandler
                 $result = $DBC->getProjectById($_GET['id']);
                 echo json_encode($result);
                 break;
+            case "login":
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                if($username == "admin" && $password == "helloworld"){
+                    echo 'true';
+                }else{
+                    echo 'false';
+                }
+                break;
             default:
                 break;
         }

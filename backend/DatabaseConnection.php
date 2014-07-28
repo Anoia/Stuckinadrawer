@@ -1,6 +1,6 @@
 <?php
-
 require_once('dbvars.php');
+
 
 class DatabaseConnection
 {
@@ -28,7 +28,7 @@ class DatabaseConnection
             #connect to DB
             $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
         } catch (PDOException $e) {
-            # echo $e->getMessage();
+            echo $e->getMessage();
         }
         return $DBH;
     }

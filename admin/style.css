@@ -152,4 +152,21 @@ textarea {
     background-color: #25354a;
 }
 
+#deleteButton {
+    background-color: #bc1c20;
+    color: #EFF3F3;
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 5px;
+    padding: 10px 40px;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    height: 50px;
+}
+
+#deleteButton:hover {
+    background-color: #9d171b;
+}
+
 

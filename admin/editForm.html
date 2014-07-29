@@ -1,5 +1,5 @@
-<section id="editHAHA">
-    <form name="newProjectForm">
+<section id="edit">
+    <form name="newProjectForm" id="editForm">
         <label>Title: </label> <input type="text" id="title" name="title" required/> <br>
         <label>Language: </label><input type="text" id="lang" name="lang" required/> <br>
         <label>Date:</label><input type="text" id="written" name="written" required/> <br>
@@ -11,7 +11,7 @@
 
         <label>Description: </label><textarea id="description" rows="6" name="description" required></textarea> <br>
         <label>Content: </label><textarea id="content" rows="15" name="content"></textarea> <br>
-        <label><input type="button" value="Submit" id="loginButton" onclick="submitProjectData();"></label>
+        <input type="button" value="Submit" id="loginButton" onclick="submitProjectData();">
     </form>
 
 </section>

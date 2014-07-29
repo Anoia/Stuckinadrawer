@@ -56,7 +56,7 @@ Ajax = {
 
     login: function (username, password) {
         $.ajax({
-            url: 'backend/backend.php',
+            url: '../backend/backend.php',
             data: {
                 request: 'login',
                 username: username,
@@ -96,8 +96,47 @@ Ajax = {
         });
     },
 
+    submitNewProject: function (data) {
+        data.request = 'submitNewProject';
+        $.ajax({
+            url: '../backend/backend.php',
+            data: data,
+            type: 'POST',
+            dataType: 'text',
+            success: submitted,
+            error: Ajax.displayError
+        });
+    },
+
+    submitChangesToProject: function (data) {
+        data.request = 'submitChangesToProject';
+        $.ajax({
+            url: '../backend/backend.php',
+            data: data,
+            type: 'POST',
+            dataType: 'text',
+            success: submitted,
+            error: Ajax.displayError
+        });
+
+    },
+
+    deleteProject: function (id) {
+        $.ajax({
+            url: '../backend/backend.php',
+            data: {
+                request: 'deleteProject',
+                id: id
+            },
+            type: 'POST',
+            dataType: 'text',
+            success: submitted,
+            error: Ajax.displayError
+        });
+    },
+
     displayError: function (xhr, status) {
-        alert('Ajax error!');
+        console.log('Ajax error!');
         console.log(status);
         console.log(xhr);
     }

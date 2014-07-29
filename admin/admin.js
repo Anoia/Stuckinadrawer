@@ -67,6 +67,7 @@ function adminProjectOverview(jSONResult) {
     }
 }
 
+var id = null;
 
 function editProject(jSONResult) {
 
@@ -93,7 +94,6 @@ function editProject(jSONResult) {
         $admin.append($formContainer);
         if (!newProject) {
             var result = jSONResult[0];
-            console.log(result);
             $('#title').val(result.title);
             $('#lang').val(result.lang);
             $('#written').val(result.written);
@@ -104,7 +104,14 @@ function editProject(jSONResult) {
             $('#image').val(result.image);
             $('#description').val(result.description);
             $('#content').val(result.content);
-            console.log(result.title);
+            id = result.id;
+
+            $('#editForm').append($('<input/>', {
+                type: 'button',
+                value: 'Delete',
+                id: "deleteButton",
+                click: deleteProject
+            }))
 
         }
 
@@ -113,7 +120,37 @@ function editProject(jSONResult) {
 
 }
 
+function deleteProject() {
+    Ajax.deleteProject(id);
+}
+
 function submitProjectData() {
-    console.log("test");
-    console.log($('#title').val());
+
+    var data = {
+        title: $('#title').val(),
+        lang: $('#lang').val(),
+        written: $('#written').val(),
+        download: $('#download').val(),
+        online: $('#online').val(),
+        source: $('#source').val(),
+        thumbnail: $('#thumbnail').val(),
+        image: $('#image').val(),
+        description: $('#description').val(),
+        content: $('#content').val()
+    };
+
+    if (id != null) {
+        data.id = id;
+        console.log(data);
+        Ajax.submitChangesToProject(data);
+
+
+    } else {
+        console.log(data);
+        Ajax.submitNewProject(data);
+    }
+}
+
+function submitted(result) {
+    window.location.href = "adminarea.html";
 }

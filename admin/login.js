@@ -11,7 +11,7 @@ function login(data) {
         if (typeof (Storage) !== "undefined") {
             console.log("storage supported");
             localStorage.setItem("loggedin", "true");
-            window.location.href = "admin/adminarea.html";
+            window.location.href = "adminarea.html";
 
         } else {
             console.log("storage not supported");

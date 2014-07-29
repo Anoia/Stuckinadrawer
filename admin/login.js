@@ -7,4 +7,17 @@ function submitLoginData() {
 
 function login(data) {
     console.log("Login: " + data);
+    if (data == "true") {
+        if (typeof (Storage) !== "undefined") {
+            console.log("storage supported");
+            localStorage.setItem("loggedin", "true");
+            window.location.href = "admin/adminarea.html";
+
+        } else {
+            console.log("storage not supported");
+        }
+    } else {
+        //Wrong login
+    }
+
 }

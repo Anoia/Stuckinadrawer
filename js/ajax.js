@@ -69,6 +69,33 @@ Ajax = {
         });
     },
 
+    getProjectsForAdmin: function () {
+        $.ajax({
+            url: '../backend/backend.php',
+            data: {
+                request: 'getProjectsForOverview'
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: adminProjectOverview,
+            error: Ajax.displayError
+        });
+    },
+
+    getProjectByIdForAdmin: function (id) {
+        $.ajax({
+            url: '../backend/backend.php',
+            data: {
+                request: 'getProjectById',
+                id: id
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: editProject,
+            error: Ajax.displayError
+        });
+    },
+
     displayError: function (xhr, status) {
         alert('Ajax error!');
         console.log(status);

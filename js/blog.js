@@ -40,7 +40,7 @@ function displayBlogPost(jSONResult) {
 
 function displayProjectOverview(jSONResult) {
     console.log(jSONResult);
-    var $project = $('#projects');
+    var $project = $('#projectOverview');
     for (var i = 0; i < jSONResult.length; i++) {
         var $img = $('<img/>', {
             src: jSONResult[i].thumbnail,
@@ -51,9 +51,9 @@ function displayProjectOverview(jSONResult) {
     }
     var $details = $('<div/>', {
         'class': 'details',
-        style: 'display: none'
+        style: 'display: inline-block;'
     });
-    $project.append($details);
+    $('#projects').append($details);
 
 }
 

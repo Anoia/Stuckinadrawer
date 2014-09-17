@@ -63,7 +63,7 @@ nav a:hover {
 }
 
 section {
-    padding: 2em 20%;
+    padding: 2em 15%;
     min-height: 20em;
 }
 
@@ -96,7 +96,14 @@ section h1 {
     margin: 2em;
 }
 
-#projects > img {
+#projectOverview {
+    display: inline-block;
+    width: 49%;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+#projectOverview > img {
     background: #fff;
     margin: 2em;
     height: 200px;
@@ -107,7 +114,7 @@ section h1 {
     border-radius: 20px;
 }
 
-#projects > img:hover {
+#projectOverview > img:hover {
     border: solid #27AE60 4px;
 }
 
@@ -147,6 +154,13 @@ button {
 
 button:hover {
     background-color: #25354a;
+}
+
+.details {
+    display: inline-block;
+    width: 49%;
+    overflow: hidden;
+    vertical-align: top;
 }
 
 .details img {

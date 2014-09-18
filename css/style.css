@@ -63,7 +63,7 @@ nav a:hover {
 }
 
 section {
-    padding: 2em 15%;
+    padding: 2em 20%;
     min-height: 20em;
 }
 
@@ -96,26 +96,20 @@ section h1 {
     margin: 2em;
 }
 
-#projectOverview {
-    display: inline-block;
-    width: 49%;
-    overflow: hidden;
-    vertical-align: top;
-}
-
 #projectOverview > img {
     background: #fff;
     margin: 2em;
     height: 200px;
     width: 200px;
-    border: solid #34495E 4px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    /* border: solid #34495E 4px;
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     border-radius: 20px;*/
+    border: solid #34495E 2px;
 }
 
 #projectOverview > img:hover {
-    border: solid #27AE60 4px;
+    border: solid #27AE60 2px;
 }
 
 b {
@@ -157,10 +151,31 @@ button:hover {
 }
 
 .details {
-    display: inline-block;
-    width: 49%;
-    overflow: hidden;
-    vertical-align: top;
+    display: none;
+    position: fixed;
+    height: 80%;
+    width: auto;
+    background: #EFF3F3;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 3px solid #34495E;
+    overflow: auto;
+    padding: 10px 50px;
+}
+
+.detailsBackground {
+    background: #000000; /*Sample*/
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    opacity: 0.4;
 }
 
 .details img {
@@ -189,4 +204,9 @@ blockquote {
     margin-left: 50px;
     padding-left: 15px;
     border-left: 3px solid #34495E;
+}
+
+#projectDetails {
+    display: hidden;
+    min-height: 0;
 }

@@ -51,7 +51,7 @@ function displayProjectOverview(jSONResult) {
     }
     var $details = $('<div/>', {
         'class': 'details',
-        style: 'display: inline-block;'
+        style: 'display: none;'
     });
     $('#projects').append($details);
 
@@ -73,19 +73,19 @@ function displayProject(jSONResult) {
 
     //info-link bar
     var html = "";
-    if (result.written != null) {
+    if (result.written != null && result.written !== "") {
         html += result.written + " | ";
     }
-    if (result.lang != null) {
+    if (result.lang != null && result.lang !== "") {
         html += result.lang + " | ";
     }
-    if (result.download != null) {
+    if (result.download != null && result.download !== "") {
         html += '<a href="' + result.download + '" target="_blank">download</a>' + " | ";
     }
-    if (result.online != null) {
+    if (result.online != null && result.online !== "") {
         html += '<a href="' + result.online + '" target="_blank">try online</a>' + " | ";
     }
-    if (result.source != null) {
+    if (result.source != null && result.source !== "") {
         html += '<a href="' + result.source + '" target="_blank">view source</a>' + " | ";
     }
 
@@ -124,18 +124,48 @@ function displayProject(jSONResult) {
     var $button = $('<button/>', {
         html: "close",
         type: 'button',
-        onclick: 'closeDetails();'
+        onclick: 'hideDetails();'
     });
     $details.data({
         id: result.id
     })
 
     $details.append($description, $content, $button);
-    $details.slideDown(400, function () {
-        /*$('html, body').animate({
-         scrollTop: $('#projects').offset().top
-         }, 500);     */
+
+    /*
+     disable_scroll();
+     $details.slideDown(300, function () {
+     $('html, body').animate({
+     scrollTop: $('.details').offset().top
+     }, 300, function(){
+     enable_scroll();
+     });
+     });   */
+
+    showDetails();
+}
+
+function showDetails() {
+    var $details = $('.details');
+    $details.fadeIn(400);
+    $details.scrollTop(0);
+    $('.detailsBackground').fadeIn(400);
+    $('body').css('overflow', 'hidden');
+
+}
+
+function hideDetails() {
+    $('body').css('overflow', 'auto');
+    $('.detailsBackground').fadeOut(400);
+    var $details = $('.details');
+    $details.fadeOut(400, function () {
+        $details.empty();
+        $details.data({
+            id: null
+        });
     });
+
+
 }
 
 

@@ -45,7 +45,7 @@ class DatabaseConnection
     }
 
     public function getAllProjects(){
-        $STH = $this->DBH->query('SELECT * FROM projects ORDER BY id DESC');
+        $STH = $this->DBH->query('SELECT * FROM projects ORDER BY written DESC, id DESC');
         $STH->setFetchMode(PDO::FETCH_ASSOC);
         return $STH->fetchAll();
     }

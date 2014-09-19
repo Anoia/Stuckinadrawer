@@ -55,6 +55,10 @@ function displayProjectOverview(jSONResult) {
     });
     $('#projects').append($details);
 
+    $('.detailsBackground').click(function () {
+        hideDetails();
+    });
+
 }
 
 

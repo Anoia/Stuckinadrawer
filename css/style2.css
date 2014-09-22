@@ -9,7 +9,7 @@ body {
     background: #f2f2f2;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
-    color: #000000;
+    color: #373535;
 }
 
 header {
@@ -52,7 +52,7 @@ header h1::before {
 nav a:link,
 nav a:visited,
 nav a:active {
-    color: #000000;
+    color: #373535;
     text-decoration: none;
     font-weight: bold;
 }
@@ -77,22 +77,30 @@ section p {
 section h1 {
     padding: 1em;
     font-size: 350%;
-    color: #000000;
+    color: #373535;
     text-align: center;
     font-family: 'Droid Serif', serif;
 
 }
 
 #hello {
-    /*
-       background: #740812;
-       color: #fff;*/
+
+    background: #373535;
+    color: #f2f2f2;
+}
+
+#hello h1 {
+    color: #f2f2f2;
 }
 
 #contact {
-    /*   background: #aba6a5;
-       color: #fff;          */
+    background: #373535;
+    color: #f2f2f2;
     text-align: center;
+}
+
+#contact h1 {
+    color: #f2f2f2;
 }
 
 #contact img {
@@ -100,7 +108,7 @@ section h1 {
 }
 
 #projectOverview > img {
-    background: #fff;
+    background: #f2f2f2;
     margin: 2em;
     height: 200px;
     width: 200px;
@@ -108,11 +116,12 @@ section h1 {
      -webkit-border-radius: 20px;
      -moz-border-radius: 20px;
      border-radius: 20px;*/
-    border: solid #000000 2px;
+    border: solid #373535 2px;
 }
 
 #projectOverview > img:hover {
     border: solid #740812 2px;
+    cursor: pointer;
 }
 
 b {
@@ -138,7 +147,7 @@ a:hover {
 
 button {
     background-color: #740812;
-    color: #EFF3F3;
+    color: #f2f2f2;
     display: block;
     vertical-align: baseline;
     margin: 50px auto;
@@ -146,6 +155,8 @@ button {
     font-family: 'Lato', sans-serif;
     letter-spacing: 1px;
     font-weight: bold;
+
+    cursor: pointer;
     border: 0;
 }
 
@@ -164,7 +175,7 @@ button:hover {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 10;
-    border: 1px solid #000000;
+    border: 1px solid #373535;
     overflow: auto;
     padding: 40px 80px;
 }
@@ -186,7 +197,7 @@ button:hover {
     width: 500px;
     display: block;
     margin: 2em auto;
-    border: solid #000000 2px;
+    border: solid #373535 2px;
 
 }
 

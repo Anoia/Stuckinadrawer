@@ -121,7 +121,12 @@ function editProject(jSONResult) {
 }
 
 function deleteProject() {
-    Ajax.deleteProject(id);
+    if (confirm("Really delete?")) {
+        Ajax.deleteProject(id);
+    } else {
+        console.log("NO!");
+    }
+
 }
 
 function submitProjectData() {

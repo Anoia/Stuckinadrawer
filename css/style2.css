@@ -87,10 +87,16 @@ section h1 {
 
     background: #373535;
     color: #f2f2f2;
+    text-align: justify;
 }
 
 #hello h1 {
     color: #f2f2f2;
+}
+
+#hello img {
+    float: left;
+    margin: 0 10px;
 }
 
 #contact {

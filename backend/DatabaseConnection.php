@@ -45,7 +45,7 @@ class DatabaseConnection
     }
 
     public function getAllProjects(){
-        $STH = $this->DBH->query('SELECT * FROM projects ORDER BY written DESC, id DESC');
+        $STH = $this->DBH->query('SELECT * FROM projects ORDER BY weight DESC, written DESC, id DESC');
         $STH->setFetchMode(PDO::FETCH_ASSOC);
         return $STH->fetchAll();
     }
@@ -58,12 +58,12 @@ class DatabaseConnection
     }
 
     public function addNewProject($data){
-        $STH = $this->DBH->prepare('INSERT INTO projects (title, lang, written, download, online, source, thumbnail, image, description, content) VALUES (?,?,?,?,?,?,?,?,?,?)');
+        $STH = $this->DBH->prepare('INSERT INTO projects (title, lang, written, download, online, source, thumbnail, image, description, content, weight) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
         $STH->execute($data);
     }
 
     public function updateProject($data){
-        $STH = $this->DBH->prepare('UPDATE projects SET title=?, lang=?, written=?, download=?, online=?, source=?, thumbnail=?, image=?, description=?, content=?  WHERE id=?');
+        $STH = $this->DBH->prepare('UPDATE projects SET title=?, lang=?, written=?, download=?, online=?, source=?, thumbnail=?, image=?, description=?, content=?, weight=?  WHERE id=?');
         $STH->execute($data);
     }
 

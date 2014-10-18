@@ -102,6 +102,7 @@ function editProject(jSONResult) {
             $('#source').val(result.source);
             $('#thumbnail').val(result.thumbnail);
             $('#image').val(result.image);
+            $('#weight').val(result.weight);
             $('#description').val(result.description);
             $('#content').val(result.content);
             id = result.id;
@@ -141,6 +142,7 @@ function submitProjectData() {
         thumbnail: $('#thumbnail').val(),
         image: $('#image').val(),
         description: $('#description').val(),
+        weight: $('#weight').val(),
         content: $('#content').val()
     };
 
@@ -148,7 +150,6 @@ function submitProjectData() {
         data.id = id;
         console.log(data);
         Ajax.submitChangesToProject(data);
-
 
     } else {
         console.log(data);

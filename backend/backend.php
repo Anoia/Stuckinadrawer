@@ -72,6 +72,7 @@ class RequestHandler
                     $_POST['image'],
                     $_POST['description'],
                     $_POST['content'],
+                    $_POST['weight'],
                     $_POST['id']
                 );
                 $DBC->updateProject($data);
@@ -89,7 +90,8 @@ class RequestHandler
                     $_POST['thumbnail'],
                     $_POST['image'],
                     $_POST['description'],
-                    $_POST['content']
+                    $_POST['content'],
+                    $_POST['weight']
                 );
                 $DBC->addNewProject($data);
                 echo serialize($data);
